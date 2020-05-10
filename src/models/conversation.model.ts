@@ -1,6 +1,7 @@
-import {model, property, hasMany} from '@loopback/repository';
+import {hasMany, model, property} from '@loopback/repository';
 import {BaseEntity} from '.';
 import {Message} from './message.model';
+import {User} from './user.model';
 
 @model()
 export class Conversation extends BaseEntity {
@@ -18,6 +19,9 @@ export class Conversation extends BaseEntity {
 
   @hasMany(() => Message)
   messages: Message[];
+
+  @hasMany(() => User)
+  users: User[];
   // Define well-known properties here
 
   // Indexer property to allow additional data
