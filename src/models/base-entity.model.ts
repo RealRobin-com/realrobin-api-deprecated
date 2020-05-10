@@ -3,18 +3,6 @@ import {Entity, model, property} from '@loopback/repository';
 @model()
 export class BaseEntity extends Entity {
   @property({
-    type: 'string',
-    id: true,
-    required: false,
-    generated: true,
-    useDefaultIdType: false,
-    postgresql: {
-      dataType: 'uuid',
-    },
-  })
-  id?: string;
-
-  @property({
     type: 'date',
     required: false,
     defaultFn: 'now',

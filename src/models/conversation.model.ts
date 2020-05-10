@@ -1,8 +1,23 @@
-import {model} from '@loopback/repository';
+import {model, property, hasMany} from '@loopback/repository';
 import {BaseEntity} from '.';
+import {Message} from './message.model';
 
 @model()
 export class Conversation extends BaseEntity {
+  @property({
+    type: 'string',
+    id: true,
+    required: false,
+    generated: true,
+    useDefaultIdType: false,
+    postgresql: {
+      dataType: 'uuid',
+    },
+  })
+  id?: string;
+
+  @hasMany(() => Message)
+  messages: Message[];
   // Define well-known properties here
 
   // Indexer property to allow additional data
