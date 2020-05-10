@@ -1,39 +1,8 @@
-import {Entity, model, property} from '@loopback/repository';
+import {model} from '@loopback/repository';
+import {BaseEntity} from '.';
 
 @model()
-export class Conversation extends Entity {
-  @property({
-    type: 'string',
-    id: true,
-    required: false,
-    generated: true,
-    useDefaultIdType: false,
-    postgresql: {
-      dataType: 'uuid',
-    },
-  })
-  id?: string;
-
-  @property({
-    type: 'date',
-    required: false,
-    defaultFn: 'now',
-    postgresql: {
-      dataType: 'timestamp with time zone',
-    },
-  })
-  createdAt: string;
-
-  @property({
-    type: 'date',
-    required: false,
-    defaultFn: 'now',
-    postgresql: {
-      dataType: 'timestamp with time zone',
-    },
-  })
-  updatedAt: string;
-
+export class Conversation extends BaseEntity {
   // Define well-known properties here
 
   // Indexer property to allow additional data
